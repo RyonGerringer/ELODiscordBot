@@ -1,5 +1,8 @@
 from replit import db
 
+
+
+
 # adds new player to database
 def add_player(user, tag):
   print(user, tag)
@@ -22,7 +25,7 @@ def del_player(user):
 def get_stats(user):
   print(user)
   values = db[user]
-  out = f"{user}'s Stats\nActivisionID: {values[0]}\nELO: {values[1]}"
+  out = f"__**{user}'s Stats**__\n\n**ActivisionID:** {values[0]}\n**ELO**: {values[1]}"
   return out
 def get_elo(user):
   values = db[user]
