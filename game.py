@@ -33,6 +33,9 @@ class Game():
             self.team2.append(player)
         else:
             print("Couldnt add player to team")
+    def playerCount(self):
+        total  = len(self.team1)+len(self.team2)
+        return total
 
 
     #def listGames(self):
@@ -44,13 +47,11 @@ def appendGame(game):
 def listGames():
     out = ''
     for i in gamesList:
-        out += f"{i.name} \n"
+        out += f"{i.name} {i.playerCount()}Players\n"
     return out
 
 
-def listPlayers(name):
 
-    Game.listPlayers(name)
 
 
 def selectGame(name):

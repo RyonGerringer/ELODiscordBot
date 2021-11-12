@@ -22,6 +22,19 @@ def del_player(user):
   except:
     return f"Could not delete {user}"
 
+def is_user(user):
+    print("IS-USER?",user)
+    print(db.keys())
+    if user in db.keys():
+        print("True")
+        return True
+    else:
+        print("false")
+        return False
+    
+    
+
+
 def get_stats(user):
   print(user)
   values = db[user]
