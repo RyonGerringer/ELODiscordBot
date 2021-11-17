@@ -1,4 +1,5 @@
 from replit import db
+import players
 
 gamesList = []
 
@@ -16,20 +17,22 @@ class Game():
         if not self.team1:
             out += "No Players"
         for i in self.team1:
-            out += f"{i}\n"
+            out += f"{players.show_player(i)}\n"
         out += '\n**Team 2:**\n'
         if not self.team2:
             out += "No Players"
         for i in self.team2:
-            out += f"{i}\n"
+            out += f"{players.show_player(i)}\n"
         if out == '':
             out = "No Players"
         return out
 
     def addPlayer(self, player, team):
-        if team == 'team1':
+        team1list = ["team 1",'1','team1']
+        team2list = ["team 2",'2','team2']
+        if team.lower() in team1list:
             self.team1.append(player)
-        elif team == 'team2':
+        elif team.lower() in team2list:
             self.team2.append(player)
         else:
             print("Couldnt add player to team")
@@ -47,7 +50,7 @@ def appendGame(game):
 def listGames():
     out = ''
     for i in gamesList:
-        out += f"{i.name} {i.playerCount()}Players\n"
+        out += f"{i.name} ({i.playerCount()})\n"
     return out
 
 

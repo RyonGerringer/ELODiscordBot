@@ -24,7 +24,6 @@ def del_player(user):
 
 def is_user(user):
     print("IS-USER?",user)
-    print(db.keys())
     if user in db.keys():
         print("True")
         return True
@@ -36,7 +35,7 @@ def is_user(user):
 
 
 def get_stats(user):
-  print(user)
+  print("Getting stats for", user)
   values = db[user]
   out = f"__**{user}'s Stats**__\n\n**ActivisionID:** {values[0]}\n**ELO**: {values[1]}"
   return out
@@ -46,6 +45,11 @@ def get_elo(user):
 def get_gamertag(user):
   values = db[user]
   return values[0]
+
+
+def show_player(user):
+    out = f"-{get_elo(user)}- {get_gamertag(user)}"
+    return out
 
 
   
