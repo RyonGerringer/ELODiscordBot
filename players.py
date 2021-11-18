@@ -5,14 +5,11 @@ from replit import db
 
 # adds new player to database
 def add_player(user, tag):
-  print(user, tag)
-  if user in db.keys():
-    print("Name Exists")
-    return ("You already have an account registered!")
-  else:
+    print(user, tag)
+    
     db[user] = [tag, 1500]
     print("Successfully Added",user, tag)
-    return (f"Successfully Added. \n{user} you start with 1500 ELO Points.\nActivisionID: {tag}")
+    return (f"**{user}**\nYou start with **{get_elo(user)}** ELO Points.\nActivisionID: {tag}")
 
 # delete a user
 def del_player(user):

@@ -30,22 +30,41 @@ class Game():
     def addPlayer(self, player, team):
         team1list = ["team 1",'1','team1']
         team2list = ["team 2",'2','team2']
-        if team.lower() in team1list:
+        
+        if player in self.team1:
+            self.team1.remove(player)
+        if player in self.team2:
+            self.team2.remove(player)
+        if team.lower() in team1list and self.isTeamOpen(self.team1):
             self.team1.append(player)
-        elif team.lower() in team2list:
+        elif team.lower() in team2list and self.isTeamOpen(self.team1):
             self.team2.append(player)
         else:
             print("Couldnt add player to team")
     def playerCount(self):
         total  = len(self.team1)+len(self.team2)
         return total
+    def teamPlayerCount(self, team):
+        return len(team)
+    def isTeamOpen(self, team):
+        count = self.teamPlayerCount(team)
+        print(f"Is team Open? {count}/4",team)
+        if count <=4:
+            return True
+        else:
+            return False
+
+def isGameFull(game):
+    if game.playerCount() == 8:
+        return True
+    else:
+        return False
 
 
     #def listGames(self):
 def appendGame(game):
     gamesList.append(game)
     print("Created game and added to list", game.name)
-
 
 def listGames():
     out = ''
